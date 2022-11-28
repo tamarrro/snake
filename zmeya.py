@@ -1,6 +1,7 @@
 from config import *
 
 class Snake:
+    '''создаем класс функций, отвечающий за змейку, заносим туда основные параметры змеи'''
     head = []
     length = 1
     list = []
@@ -8,6 +9,7 @@ class Snake:
     speed = 15
     
 
-def our_snake(dis, snake):
-   for x in snake.list:
-       pygame.draw.rect(dis, black, [x[0], x[1], snake.block, snake.block])
+def draw_snake(dis, snake):
+    '''создаем функцию, которая рисует нашу змейку'''
+    for x in snake.list:
+       pygame.draw.rect(dis, blue, [x[0], x[1], snake.block, snake.block])
