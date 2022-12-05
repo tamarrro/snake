@@ -13,3 +13,4 @@ def draw_snake(dis, snake):
     '''создаем функцию, которая рисует нашу змейку'''
     for x in snake.list:
        pygame.draw.rect(dis, blue, [x[0], x[1], snake.block, snake.block])
+       ''' вначале координаты, потом длина и ширина (их мы берем из класса змеи)'''
