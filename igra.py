@@ -12,7 +12,9 @@ class Game:
 def new_game(dis_width, dis_height): 
     '''функция, создающая новую игру'''
     game = Game()
+    ''' засовываем game в Game'''
     game.snake = Snake()
+    ''' теперь подкласс класса игры - класс змея'''
     game.over = False
     game.close = False
     game.x = dis_width / 2
@@ -22,6 +24,7 @@ def new_game(dis_width, dis_height):
     '''изменение положения змейки по осям'''
     game.y_change = 0
     game.food = Food()
+    '''теперь подкласс класса еды - еда'''
     return game
 
 def check_game(dis,game):
