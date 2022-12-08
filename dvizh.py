@@ -39,20 +39,25 @@ def gameLoop(dis):
                 '''если выполняется функция, завершающая работу'''
                 game.over = True
             if event.type == pygame.KEYDOWN:
-                '''если клавиша нажата'''
-                if event.key == pygame.K_LEFT:
-                    game.x_change = -game.snake.block
-                    game.y_change = 0
-                    '''если нажата клавиша "влево", сдвигаем змею влево и т.д.'''
-                elif event.key == pygame.K_RIGHT:
+                if game.y_change == 0 and game.x_change == 0:
                     game.x_change = game.snake.block
                     game.y_change = 0
-                elif event.key == pygame.K_UP:
+                if event.key == pygame.K_LEFT and game.y_change != 0:
+                    game.x_change = -game.snake.block
+                    game.y_change = 0
+
+                elif event.key == pygame.K_RIGHT and game.y_change != 0:
+                    game.x_change = game.snake.block
+                    game.y_change = 0
+                    
+                elif event.key == pygame.K_UP and game.x_change != 0:
+                    game.x_change = 0
                     game.y_change = -game.snake.block
+                    
+                elif event.key == pygame.K_DOWN and game.x_change != 0:
                     game.x_change = 0
-                elif event.key == pygame.K_DOWN:
                     game.y_change = game.snake.block
-                    game.x_change = 0
+
         if game.x >= dis_width or game.x < 0 or game.y >= dis_height or game.y < 0:
             game.close = True
             '''если положение змеи вышло за края экрана, игра заканчивается'''
