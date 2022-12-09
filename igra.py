@@ -6,32 +6,35 @@ from zmeya import Snake
 
 class Game:
     pass
-'''создаем класс функций, отвечающий за игру'''
 
 
 def new_game(dis_width, dis_height): 
-    '''функция, создающая новую игру'''
+    '''
+    функция, создающая новую игру
+    в качестве game берем класс game
+    в качестве подкласса игры snake берем класс snake
+    game.x, game.y - начальное положение змейки
+    game.x_change, game.y_change - изменение положения змейки
+    в качестве food берем класс food
+    '''
     game = Game()
-    ''' засовываем game в Game'''
     game.snake = Snake()
-    ''' теперь подкласс класса игры - класс змея'''
     game.over = False
     game.close = False
     game.x = dis_width / 2
-    '''начальное положение змейки по осям'''
     game.y = dis_height / 2
     game.x_change = 0 
-    '''изменение положения змейки по осям'''
     game.y_change = 0
     game.food = Food()
-    '''теперь подкласс класса еды - еда'''
     return game
 
 def check_game(dis,game):
+    '''
+    функция, проверяющая, не увеличивается ли змейка сама по себе при движении
+    игра заканчивается, если тело змейки столкнулось с головой
+    '''
    if len(game.snake.list) > game.snake.length:
             del game.snake.list[0]
-   '''эта функция проверяет, что змейка не увеличивается сама по себе при движении'''
    for x in game.snake.list[:-1]:
             if x == game.snake.head:
                 game.close = True
-   '''эта функция заканчивает игру, если тело змейки столкнулось с головой'''
